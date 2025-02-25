@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron list-group-item custom-menu"
+style="background-color: #deb376; width: 50%; text-align: center; margin: 0 auto; display: block; margin-bottom: 20px; border-radius: 15px;" >
+    <h1> <b></b>รายละเอียดสินค้า</h1>
+</div>
+<div class="row">
+    <div class="col col-2">
+    </div>
+        <div class="col col-8 p-4"  >
+            <table class="table table-bordered table-hover table-warning table-striped">
+                <tr> <td class="col col-5" style="vertical-align: middle;">  <b>รหัสสินค้า:</b> </td> <td class="col col-9">{{computers.comid}}</td>  </tr>
+                <tr>  <td> <b>ชิปประมวลผล:</b> </td>   <td> {{computers.processor}} </td>  </tr>
+                <tr>  <td> <b>การ์ดจอ:</b> </td>   <td> {{computers.graphic}} </td>  </tr>
+                <tr>  <td> <b>ขนาดจอ:</b> </td>   <td> {{computers.display}} </td>  </tr>
+                <tr>  <td> <b>หน่วยความจำแรม:</b> </td>   <td> {{computers.ram}} </td>  </tr>
+                <tr>  <td> <b>หน่วยความจำ:</b> </td>   <td> {{computers.Storage}} </td>  </tr>
+                <tr>  <td> <b>ระบบปฏิบัติการ:</b> </td>   <td> {{computers.OS}} </td>  </tr>
+                <tr>  <td> <b>แบตเตอรี่:</b> </td>   <td> {{computers.battery}} </td>  </tr>
+                <tr>  <td> <b>ประกัน:</b> </td>   <td> {{computers.warranty}} </td>  </tr>
+                <tr>  <td> <b>น้ำหนัก:</b> </td>   <td> {{computers.weight}} </td>  </tr>
+                <tr>  <td> <b>ราคา:</b> </td>   <td> {{computers.price}} บาท</td>  </tr>
+                <tr>  <td> <b>รายละเอียด:</b> </td>   <td> {{computers.description}} </td>  </tr>
+                <tr>  <td> <b>คงเหลือ:</b> </td>   <td> {{computers.net}} ชิ้น </td>  </tr>
+                <tr>  <td> <b>รูปภาพ:</b> </td>   <td> <img src="/{{ computers.image }}" class="rounded" width="100px" height="150px"> </td>  </tr>
+                <tr>  <td> <b>ประเภทสินค้า:</b> </td>   <td> {{computers.category}} </td>  </tr>
+            </table>
+        </div>
+</div>
+    <p class="text-center">        
+        <a href="{% url 'computerList' %}" class="btn btn-warning">
+            <i class="fa-solid fa-rotate-left"></i> Back        
+        </a> 
+    </p>
+    
+
+
+{% endblock %}

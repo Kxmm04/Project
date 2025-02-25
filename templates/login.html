@@ -1,0 +1,36 @@
+{% block content %}
+
+<!-- ใช้ Flexbox เพื่อจัดฟอร์มให้อยู่กลางหน้าจอ -->
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f7f7f7;">
+    <form method="POST" action="user_login" style="width: 350px; text-align: center; padding: 30px; border: 1px solid #ccc; border-radius: 10px; background-color: #fff; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+        <h1 class="text-center" style="font-family: 'Arial', sans-serif; color: #333;">Login</h1>
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 20px;">
+            <!-- ให้ label และ input อยู่ตรงกัน -->
+            <label for="username" style="display: block; text-align: left; color: #555; font-weight: bold;">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter Name" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box;" required>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <!-- ให้ label และ input อยู่ตรงกัน -->
+            <label for="password" style="display: block; text-align: left; color: #555; font-weight: bold;">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box;" required> 
+        </div>
+
+        <!-- ปุ่ม Login -->
+        <input type="submit" value="Login" style="padding: 12px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%; box-sizing: border-box; transition: background-color 0.3s;">
+    </form>
+</div>
+
+{% endblock %}
+
+<!-- เพิ่มการเปลี่ยนสีเมื่อ Hover บนปุ่ม -->
+<script>
+    document.querySelector('input[type="submit"]').addEventListener('mouseenter', function() {
+        this.style.backgroundColor = '#45a049';
+    });
+    document.querySelector('input[type="submit"]').addEventListener('mouseleave', function() {
+        this.style.backgroundColor = '#4CAF50';
+    });
+</script>

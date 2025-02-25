@@ -1,0 +1,45 @@
+{% load static %}
+{% load fontawesome_6 %}
+{% fontawesome_6_static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" type="text/css" href="{% static 'bt533/css/bootstrap.css' %}">
+                    <script src="{% static 'bt533/js/bootstrap.js' %}"> </script>
+</head>
+<body>
+    <div class="container-fluid">
+        {% block sidebar %}
+        <nav class="navbar-nav nav-justified navbar-expand-lg fixed-top" style="background-color: #a47454">
+            <div class="row w-100">
+                <div class="col-lg-3">
+                   
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+
+        <div class="row">
+    <!-- คอลัมน์เมนู -->
+    <div class="col-lg-2 ml-0" style="background-color:#ddc299; color: white;  min-height: 100vh;">
+        {% include 'menu.html' %}
+    </div>
+    
+
+            <!--เรียกใช้ไอค่อน-->
+            <head>
+                <link rel="stylesheet" href="{% static 'fontawesome5/css/all.min.css' %}">
+            </head> 
+
+            <div class="col-lg-9">
+                <br><br><br><br>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

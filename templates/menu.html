@@ -1,0 +1,135 @@
+<br><br><br><br>
+
+<style>
+    /* ให้แถบเมนูยาวเต็มหน้าจอ */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: #a47454;
+    }
+
+    .navbar-nav {
+        display: flex;
+        justify-content: flex-end; /* ทำให้เมนูไปอยู่ทางขวา */
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        list-style: none;
+    }
+
+    .nav-link {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    .nav-link:hover {
+        text-decoration: none;
+    }
+
+    /* เพิ่มความห่างจากเนื้อหาหลักเมื่อเมนูอยู่ที่ข้าง */
+    .container-fluid {
+        margin-top: 60px; /* ให้เนื้อหาหลักเริ่มจากใต้แถบเมนู */
+    }
+
+    .custom-menu {
+        transition: background-color 0.3s ease; /* ทำให้การเปลี่ยนสีดูนุ่มนวล */
+    }
+
+    /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
+    .custom-menu:hover {
+        background-color: #a38456; /* เปลี่ยนเป็นสีที่ต้องการ */
+    }
+
+    /* สีพื้นหลังของรายการเมื่อไม่ได้เอาเมาส์ไปวาง */
+    .list-group-item {
+        background-color: #D3AD79; /* สีพื้นหลังปกติ */
+    }
+</style>    
+<ul class="list-group" >
+    <nav class="navbar navbar-expand-lg">
+        <div class="row w-100">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>  
+
+    <ul class="list-group">
+        <li class="list-group-item custom-menu" style="background-color: #c69d64; margin-top: -70px;">
+            <i class="fa fa-list"></i> <b>หมวดหมู่สินค้า</b>
+        </li>
+        <ul class="list-group">
+            <li class="list-group-item custom-menu" style="background-color: #D3AD79;">
+                <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                    <b>คอมพิวเตอร์ และแล็ปท็อป</b>
+                </a>
+            </li>
+        <li class="list-group-item custom-menu " style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์เสริมคอมพิวเตอร์</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'storageList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์จัดเก็บข้อมูล</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์เครือข่าย</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์เกมมิ่ง และอุปกรณ์สตรีมมิ่ง</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>ซอฟต์แวร์ และไลเซนส์</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์พกพา และแกดเจ็ต</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์สำหรับงานพิมพ์ และสแกนเอกสาร</b>
+        </a>
+        </li>
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+            <b>อุปกรณ์ประกอบคอมพิวเตอร์ และอะไหล่</b>
+        </a>
+        </li>
+        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
+            <b>อุปกรณ์สมาร์ทโฮม และ IoT</b>
+        </a>
+        </li>
+    </ul>
+
+    
+</ul>  
+<br><br><br><br>

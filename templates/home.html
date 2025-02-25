@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-lg-11">
+
+    <head>
+        <style>
+            /* จัดเรียง container ในแถว */
+            .container-wrapper {
+                display: flex;
+                justify-content: space-around;
+                gap:120px;
+                margin-top: 10px;
+                margin-left: 200px;
+                /* เพิ่ม margin-left เพื่อขยับไปทางขวา */
+            }
+
+
+            .container {
+                position: relative;
+                width: 25%;
+                /* ขนาด container */
+                overflow: hidden;
+            }
+
+            .image {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 140, 186, 0.5);
+                /* สีโปร่งใส */
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                -webkit-transform: scale(1);
+                /* ขนาดปกติ */
+                -ms-transform: scale(1);
+                transform: scale(1);
+                transition: transform 0.3s ease;
+            }
+
+            .container:hover .overlay {
+                -webkit-transform: scale(1.2);
+                /* ขยายเมื่อโฮเวอร์ */
+                -ms-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+            .overlay img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* ทำให้ภาพเต็มพื้นที่ของ container */
+                transition: transform 0.3s ease;
+                /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+            }
+
+            .text {
+                color: rgb(0, 0, 0);
+                /* สีข้อความ */
+                font-size: 6px;
+                /* ขนาดตัวอักษร */
+                font-weight: bold;
+                /* ทำให้ข้อความเป็นตัวหนา */
+                position: absolute;
+                top: 50%;
+                /* ตั้งตำแหน่งแนวตั้งเป็นกึ่งกลาง */
+                left: 50%;
+                /* ตั้งตำแหน่งแนวนอนเป็นกึ่งกลาง */
+                transform: translate(-50%, -50%);
+                /* ใช้ translate เพื่อย้ายข้อความให้อยู่กึ่งกลาง */
+                text-align: center;
+                opacity: 0;
+                /* ข้อความเริ่มต้นจะไม่แสดง */
+                transition: opacity 0.3s ease;
+                /* เพิ่มการเปลี่ยนแปลงที่นุ่มนวล */
+
+                /* เพิ่มพื้นหลัง */
+                background-color: rgba(255, 255, 255, 0.7);
+                /* พื้นหลังโปร่งใสสีขาว */
+                padding: 10px 20px;
+                /* เพิ่มช่องว่างรอบๆ ข้อความ */
+                border-radius: 5px;
+                /* ทำให้มุมของพื้นหลังโค้ง */
+            }
+            /* ให้ข้อความแสดงเมื่อ hover */
+            .container:hover .text {
+                opacity: 1;
+                /* ทำให้ข้อความแสดง */
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h2 style="margin-left: 50%; text-align: left;"><b>สินค้าแนะนำ</b></h2><br>
+
+        <div class="container-wrapper">
+            <!-- ภาพที่ 1 -->
+            <div class="container">
+                <img src="{% static 'images/CPU1.webp' %}" alt="Avatar" class="image">
+                <div class="overlay">
+                    <img src="{% static 'images/CPU1.webp' %}" alt="Image on Hover">
+                    <div class="text" style="font-size: 11.5px;">CPU AMD RYZEN 5 br5600X 3.7 GHz </div>
+                    <!-- ข้อความที่แสดงบนภาพ -->
+                </div>
+            </div>
+
+            <!-- ภาพที่ 2 -->
+            <div class="container">
+                <img src="{% static 'images/CPU1.jpg' %}" alt="Avatar" class="image">
+                <div class="overlay">
+                    <img src="{% static 'images/Display.png' %}" alt="Image on Hover">
+                    <div class="text" style="font-size: 11.5px;">DELL E2417H 23.8 INCH IPS 60Hz </div>
+                    <!-- ข้อความที่แสดงบนภาพ -->
+                </div>
+            </div>
+
+            <!-- ภาพที่ 3 -->
+            <div class="container">
+                <img src="{% static 'images/GPU1.webp' %}" alt="Avatar" class="image">
+                <div class="overlay">
+                    <img src="{% static 'images/GPU1.webp' %}" alt="Image on Hover">
+                    <div class="text" style="font-size: 11px;">GIGABYTE GEFORCE RTX 4070 TI SUPER GAMING OC 16G
+                        GDDR6</div> <!-- ข้อความที่แสดงบนภาพ -->
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+
+</html>
+{% endblock %}
