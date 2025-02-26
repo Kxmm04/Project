@@ -43,9 +43,14 @@ def computerOne(request,id):
     return render(request, 'computerOne.html', context)
 
 def accessoriesList(request):
-    computers = Computer.objects.all()  
-    context = {'computers': computers}
+    accessoriess = Accessories.objects.all()  
+    context = {'accessoriess': accessoriess}
     return render(request, 'accessoriesList.html', context)
+
+def accessoriesOne(request,id):
+    accessoriess = Accessories.objects.get(accid=id)
+    context = {' accessoriess':  accessoriess}
+    return render(request, 'accessoriesOne.html', context)
 
 def storageList(request):
     storages = Storage.objects.all()  

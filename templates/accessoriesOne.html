@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron list-group-item custom-menu"
+style="background-color: #deb376; width: 50%; text-align: center; margin: 0 auto; display: block; margin-bottom: 20px; border-radius: 15px;" >
+    <h1> <b></b>รายละเอียดสินค้า</h1>
+</div>
+<div class="row">
+    <div class="col col-2">
+    </div>
+        <div class="col col-8 p-4"  >
+            <table class="table table-bordered table-hover table-warning table-striped">
+                <tr> <td class="col col-5" style="vertical-align: middle;">  <b>รหัสสินค้า:</b> </td> <td class="col col-9">{{accessoriess.comid}}</td>  </tr>
+                <tr>  <td> <b>ชื่อสินค้า:</b> </td>   <td> {{accessoriess.name}} </td>  </tr>
+                <tr>  <td> <b>แบรนด์:</b> </td>   <td> {{accessoriess.brand}} </td>  </tr>
+                <tr>  <td> <b>รุ่น:</b> </td>   <td> {{accessoriess.model}} </td>  </tr>
+                <tr>  <td> <b>สี:</b> </td>   <td> {{accessoriess.color}} </td>  </tr>
+                <tr>  <td> <b>รูปแบบสวิทซ์:</b> </td>   <td> {{accessoriess.keyswitch}} </td>  </tr>
+                <tr>  <td> <b>กดได้กี่ครั้ง:</b> </td>   <td> {{accessoriess.keypresslifetime}} </td>  </tr>
+                <tr>  <td> <b>จำนวนปุ่ม:</b> </td>   <td> {{accessoriess.numberkey}} </td>  </tr>
+                <tr>  <td> <b>กดสูงสุดได้กี่ปุ่ม:</b> </td>   <td> {{accessoriess.mediakey}} </td>  </tr>
+                <tr>  <td> <b>interface:</b> </td>   <td> {{accessoriess.interface}} </td>  </tr>
+                <tr>  <td> <b>น้ำหนัก:</b> </td>   <td> {{accessoriess.weight}} </td>  </tr>
+                <tr>  <td> <b>ขนาด:</b> </td>   <td> {{accessoriess.size}} </td>  </tr>
+                <tr>  <td> <b>ราคา:</b> </td>   <td> {{accessoriess.price}} บาท </td>  </tr>
+                <tr>  <td> <b>รายละเอียด:</b> </td>   <td> {{accessoriess.description}} </td>  </tr>
+                <tr>  <td> <b>คงเหลือ:</b> </td>   <td> {{accessoriess.net}}  ชิ้น</td>  </tr>
+                <tr>  <td> <b>รูปภาพ:</b> </td>   <td> <img src="/{{ accessoriess.image }}" class="rounded" width="100px" height="150px"> </td>  </tr>
+                <tr>  <td> <b>ประเภทสินค้า:</b> </td>   <td> {{accessoriess.category}} </td>  </tr>
+            </table>
+        </div>
+</div>
+    <p class="text-center">        
+        <a href="{% url 'accessoriesList' %}" class="btn btn-warning">
+            <i class="fa-solid fa-rotate-left"></i> Back        
+        </a> 
+    </p>
+    
+
+
+{% endblock %}

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-from django.contrib.messages import constants as messages
+
 from pathlib import Path
 import os
 
@@ -73,13 +73,7 @@ TEMPLATES =     [
     },
 ]
 
-MESSAGE_TAGS = {
-messages.DEBUG: 'alert-secondary',
-messages.INFO: 'alert-info',
-messages.SUCCESS: 'alert-info',
-messages.WARNING: 'alert-warning',
-messages.ERROR: 'alert-danger',
-}
+
 WSGI_APPLICATION = 'Web_it.wsgi.application'
 
 
@@ -90,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_webit',
-        'USER':'U1',
+        'USER':'U2',
         'PASSWORD':'1111',
         'HOST':'localhost',
         'PORT':'3306',
