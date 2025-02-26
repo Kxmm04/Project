@@ -1,29 +1,105 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h4 class=" text-center" style="color: rgb(229, 176, 76); font-size: 30px;"> 
+    <h4 class="text-center" style="color: rgb(229, 176, 76); font-size: 30px; font-weight: bold;"> 
         <b>รายการคอมพิวเตอร์ และแล็ปท็อป</b>
-    </h4> <br>
-    <table class="table">
-        <tr>
-            <th class="col col-2">รูปภาพ</th> 
-            <th class="col col-3">ชื่อสินค้า</th>
-            <th class="col col-2">ยี่ห้อ</th>
-            <th class="col col-2">ราคา</th>
-            <th class="col col-1">Detail</th>
-        </tr>
+    </h4> 
+    <br>
+
+    <style>
+        /* สไตล์การจัดการการ์ดสินค้า */
+        .product-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;  /* ปรับเป็น start เพื่อให้การ์ดอยู่ที่เริ่มต้น */
+            gap: 20px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column; /* ทำให้การ์ดสินค้าอยู่ในแนวตั้ง */
+            justify-content: space-between; /* แบ่งพื้นที่ระหว่างข้อมูลและปุ่ม */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            background-color: #fff;
+            height: 380px; /* กำหนดความสูงที่เหมาะสม */
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-brand {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #D3AD79;
+            margin-top: 10px;
+        }
+
+        .btn-detail {
+            margin-top: auto;  /* ใช้ auto เพื่อดันปุ่มไปที่ด้านล่าง */
+            background-color: #D3AD79;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-detail:hover {
+            background-color: #b98a4e;
+        }
+
+    </style>
+
+    <!-- การ์ดสินค้า -->
+    <div class="product-card-container">
         {% for computer in computers %}
-            <tr>
-                <td class="text-center"> <img src="/{{ computer.image }}" class="rounded" width="100px" height="150px"> </td> 
-                <td style="vertical-align: middle;"> {{computer.name}} </td>
-                <td style="vertical-align: middle;"> {{computer.brand}} </td>
-                <td style="vertical-align: middle;"> {{computer.price}} </td>
-                <td style="vertical-align: middle;" > 
-                    <a href="/computerOne/{{ computer.comid }}" class="btn btn-warning">
-                        <i class="fa-solid fa-info"></i> 
-                    </a>                              
-                </td>
-            </tr>
+            <div class="product-card">
+                <!-- รูปภาพสินค้า -->
+                <img src="/{{ computer.image }}" class="rounded" alt="{{ computer.name }}">
+                
+                <!-- ชื่อสินค้า -->
+                <div class="product-name">{{ computer.name }}</div>
+
+                <!-- ยี่ห้อ -->
+                <div class="product-brand">{{ computer.brand }}</div>
+
+                <!-- ราคา -->
+                <div class="product-price">{{ computer.price }} บาท</div>
+
+                <!-- ปุ่มรายละเอียด -->
+                <a href="/computerOne/{{ computer.comid }}" class="btn-detail" style="text-decoration: none; color: white;">
+                    <i class="fa-solid fa-magnifying-glass"></i> More...
+                </a>
+                
+            </div>
         {% endfor %}
-    </table>
+    </div>
+
 {% endblock %}

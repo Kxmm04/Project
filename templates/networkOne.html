@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron list-group-item custom-menu"
+style="background-color: #deb376; width: 50%; text-align: center; margin: 0 auto; display: block; margin-bottom: 20px; border-radius: 15px;" >
+    <h1> <b></b>รายละเอียดสินค้า</h1>
+</div>
+<div class="row">
+    <div class="col col-2">
+    </div>
+        <div class="col col-8 p-4"  >
+            <table class="table table-bordered table-hover table-warning table-striped">
+                <tr> <td class="col col-5" style="vertical-align: middle;">  <b>รหัสสินค้า:</b> </td> <td class="col col-9">{{NetworkDevice.comid}}</td>  </tr>
+                <tr>  <td> <b>ชื่อสินค้า:</b> </td>   <td> {{NetworkDevice.name}} </td>  </tr>
+                <tr>  <td> <b>แบรนด์:</b> </td>   <td> {{NetworkDevice.brand}} </td>  </tr>
+                <tr>  <td> <b>รุ่น:</b> </td>   <td> {{NetworkDevice.model}} </td>  </tr>
+                <tr>  <td> <b>ระบบปฎิบัติการ:</b> </td>   <td> {{NetworkDevice.system_management}} </td>  </tr>
+                <tr>  <td> <b>แหล่งจ่ายไฟ:</b> </td>   <td> {{NetworkDevice.power_supply}} </td>  </tr>
+                <tr>  <td> <b>ไดรฟ์ออปติคัล:</b> </td>   <td> {{NetworkDevice.optical_drive}} </td>  </tr>
+                <tr>  <td> <b>ตัวควบคุม RAID:</b> </td>   <td> {{NetworkDevice.raid_controller}} </td>  </tr>
+                <tr>  <td> <b>ฮาร์ดดิสก์:</b> </td>   <td> {{NetworkDevice.harddisk}} </td>  </tr>
+                <tr>  <td> <b>หน่วยความจำ:</b> </td>   <td> {{NetworkDevice.memory}} </td>  </tr>
+                <tr>  <td> <b>ความเร็วของโปรเซสเซอร์:</b> </td>   <td> {{NetworkDevice.processor_speed}} </td>  </tr>
+                <tr>  <td> <b>โปรเซสเซอร์:</b> </td>   <td> {{NetworkDevice.processor}} </td>  </tr>
+                <tr>  <td> <b>น้ำหนัก:</b> </td>   <td> {{NetworkDevice.weight}} </td>  </tr>
+                <tr>  <td> <b>ราคา:</b> </td>   <td> {{NetworkDevice.price}} บาท </td>  </tr>
+                <tr>  <td> <b>รายละเอียด:</b> </td>   <td> {{NetworkDevice.description}} </td>  </tr>
+                <tr>  <td> <b>คงเหลือ:</b> </td>   <td> {{NetworkDevice.net}}  ชิ้น</td>  </tr>
+                <tr>  <td> <b>รูปภาพ:</b> </td>   <td> <img src="/{{ NetworkDevice.image }}" class="rounded" width="100px" height="150px"> </td>  </tr>
+                <tr>  <td> <b>ประเภทสินค้า:</b> </td>   <td> {{NetworkDevice.category}} </td>  </tr>
+            </table>
+        </div>
+</div>
+    <p class="text-center">        
+        <a href="{% url 'networkList' %}" class="btn btn-warning">
+            <i class="fa-solid fa-rotate-left"></i> Back        
+        </a> 
+    </p>
+    
+
+
+{% endblock %}

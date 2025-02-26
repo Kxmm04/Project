@@ -45,91 +45,197 @@
 
     /* เปลี่ยนสีเมื่อเอาเมาส์ไปวาง */
     .custom-menu:hover {
-        background-color: #a38456; /* เปลี่ยนเป็นสีที่ต้องการ */
+        background-color: #edcfa2; /* เปลี่ยนเป็นสีที่ต้องการ */
     }
 
-    /* สีพื้นหลังของรายการเมื่อไม่ได้เอาเมาส์ไปวาง */
-    .list-group-item {
-        background-color: #D3AD79; /* สีพื้นหลังปกติ */
+
+/* ใช้ Flexbox เพื่อจัดตำแหน่ง accordion ทางซ้ายมือ */
+    .container {
+        display: flex;
+        flex-direction: column; /* เรียงลูกในแนวตั้ง */
+        width: 250px; /* กำหนดความกว้างของคอลัมน์ */
+        position: fixed; /* ทำให้ปุ่มอยู่ทางซ้ายมือ */
+        top: 0; /* ชิดด้านบน */
+        left: 0; /* ชิดด้านซ้าย */
+        padding-top: 20px; /* เว้นระยะห่างจากขอบบน */
+        background-color: #f8f8f8; /* สีพื้นหลัง */
+        border-right: 2px solid #ddd; /* เพิ่มเส้นขอบขวา */
+        z-index: 1; /* ทำให้แสดงอยู่ด้านบน */
     }
-</style>    
+        
+        /* สไตล์ของปุ่ม Accordion */
+    .accordion {
+        background-color: #eee;
+        color: #000000;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%; /* กำหนดความกว้างเต็ม */
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 17px;
+        transition: 0.4s;
+        margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+    }
+        
+        /* เมื่อคลิกปุ่ม accordion หรือ hover จะเปลี่ยนสี */
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
+        
+        /* สไตล์ของเนื้อหาใน panel */
+    .panel {
+        padding: 0 px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        margin-left: 0;
+        margin-bottom: 10px; /* ช่องว่างระหว่างแต่ละเนื้อหา */
+        }
+        
+        /* สไตล์ของหัวข้อหมวดหมู่สินค้า */
+    .custom-menu {
+        background-color:   #D3AD79;
+        color: rgb(0, 0, 0);
+        padding: 18px;
+        text-align: left;
+        border: none;
+        font-size: 14px;
+    }
+
+    /* เมื่อเอาเมาส์ไปวางที่ปุ่ม accordion ให้เปลี่ยนสีพื้นหลัง */
+.accordion:hover {
+    background-color: #b98a4e; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    color: white; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+}
+
+/* เปลี่ยนสีข้อความในปุ่ม accordion เมื่อ hover */
+.accordion:hover b {
+    color: white; /* เปลี่ยนสีตัวอักษรเมื่อ hover */
+}
+        </style>       
+
 <ul class="list-group" >
     <nav class="navbar navbar-expand-lg">
         <div class="row w-100">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a>
+                    <a class="nav-link" href="{% url 'home' %}" style="text-decoration: none; color: rgb(255, 255, 255);">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-info-circle"></i> About</a>
+                    <a class="nav-link" href="#" style="text-decoration: none; color: rgb(255, 255, 255);">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
                 </li>   
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-cogs"></i> Services</a>
+                    <a class="nav-link" href="#" style="text-decoration: none; color: rgb(255, 255, 255);">
+                        <i class="fas fa-cogs"></i> Services
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+                    <a class="nav-link" href="#" style="text-decoration: none; color: rgb(255, 255, 255);">
+                        <i class="fas fa-phone-alt"></i> Contact
+                    </a>
                 </li>
+                
             </ul>
         </div>
     </nav>  
 
     <ul class="list-group">
-        <li class="list-group-item custom-menu" style="background-color: #c69d64; margin-top: -70px;">
-            <i class="fa fa-list"></i> <b>หมวดหมู่สินค้า</b>
-        </li>
-        <ul class="list-group">
-            <li class="list-group-item custom-menu" style="background-color: #D3AD79;">
-                <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-                    <b>คอมพิวเตอร์ และแล็ปท็อป</b>
-                </a>
-            </li>
-        <li class="list-group-item custom-menu " style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์เสริมคอมพิวเตอร์</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'storageList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์จัดเก็บข้อมูล</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์เครือข่าย</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์เกมมิ่ง และอุปกรณ์สตรีมมิ่ง</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>ซอฟต์แวร์ และไลเซนส์</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์พกพา และแกดเจ็ต</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์สำหรับงานพิมพ์ และสแกนเอกสาร</b>
-        </a>
-        </li>
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-            <b>อุปกรณ์ประกอบคอมพิวเตอร์ และอะไหล่</b>
-        </a>
-        </li>
-        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
-        <li class="list-group-item custom-menu"style="background-color: #D3AD79;">
-            <b>อุปกรณ์สมาร์ทโฮม และ IoT</b>
-        </a>
+        <li class="list-group-item custom-menu" style=" background-color: #D3AD79;margin-top: -70px;">
+            <button class="accordion" style=" background-color: #D3AD79; padding: 8; margin: 0;"><i class="fa fa-list"></i><b> หมวดหมู่สินค้า</b></button>
+            <div class="panel">
+                <ul class="list-group" style="width: 100%; padding: 0; margin: 0;">
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>คอมพิวเตอร์ และแล็ปท็อป</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'accessoriesList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์เสริมคอมพิวเตอร์</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'storageList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์จัดเก็บข้อมูล</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'networkList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์เครือข่าย</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์เกมมิ่ง และอุปกรณ์สตรีมมิ่ง</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>ซอฟต์แวร์ และไลเซนส์</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์พกพา และแกดเจ็ต</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์สำหรับงานพิมพ์ และสแกนเอกสาร</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์ประกอบคอมพิวเตอร์ และอะไหล่</b>
+                        </a>
+                    </li>
+                    <li class="list-group-item custom-menu" style="width: 100%; padding: 10px;">
+                        <a href="{% url 'computerList' %}" style="text-decoration: none; color: inherit;">
+                            <b>อุปกรณ์สมาร์ทโฮม และ IoT</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
-
-    
 </ul>  
+<script>
+    // เมื่อคลิก Accordion ให้แสดงเนื้อหาที่เปิดอยู่
+var acc = document.getElementsByClassName("accordion");
+for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        // Toggle the active class for accordion
+        this.classList.toggle("active");
+
+        // ทำให้ panel ค้างเปิด
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+}
+
+// ตรวจสอบ URL ปัจจุบันและทำให้ Accordion ที่ต้องการเปิด
+window.addEventListener('load', function () {
+    if(window.location.href.includes("{% url 'computerList' %}") || 
+       window.location.href.includes("{% url 'accessoriesList' %}") || 
+       window.location.href.includes("{% url 'storageList' %}") || 
+       window.location.href.includes("{% url 'networkList' %}")) {
+        
+        var acc = document.getElementsByClassName("accordion");
+        // เปิด Accordion ที่ต้องการ (ตัวแรกในกรณีนี้)
+        acc[0].classList.add("active");  // เปิด accordion ที่ต้องการ
+        var panel = acc[0].nextElementSibling;
+        panel.style.maxHeight = panel.scrollHeight + "px"; // ทำให้เนื้อหาของ accordion เปิดอยู่
+    }
+});
+
+</script>
 <br><br><br><br>

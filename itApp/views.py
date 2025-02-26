@@ -47,6 +47,11 @@ def accessoriesList(request):
     context = {'computers': computers}
     return render(request, 'accessoriesList.html', context)
 
+def accessoriesOne(request,id):
+    accessoriess = Accessories.objects.get(accid=id)
+    context = {' accessoriess':  accessoriess}
+    return render(request, 'accessoriesOne.html', context)
+
 def storageList(request):
     storages = Storage.objects.all()  
     context = {'storages': storages}
@@ -56,4 +61,14 @@ def storageOne(request,id):
     storages = Storage.objects.get(storageid=id)
     context = {'storages': storages}
     return render(request, 'storageOne.html', context)
+
+def networkList(request):
+    networks = NetworkDevice.objects.all()  
+    context = {'networks': networks}
+    return render(request, 'networkList.html', context)
+
+def networkOne(request,id):
+    networks = NetworkDevice.objects.get(ntid=id)
+    context = {'networks': networks}
+    return render(request, 'networkOne.html', context)
 

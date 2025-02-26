@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <h4 class=" text-center" style="color: rgb(229, 176, 76); font-size: 30px;"> 
-        <b>อุปกรณ์จัดเก็บข้อมูล</b>
+        <b>อุปกรณ์เครือข่าย</b>
     </h4> <br>
     <table class="table">
         <tr>
@@ -12,14 +12,14 @@
             <th class="col col-2">ราคา</th>
             <th class="col col-1">Detail</th>
         </tr>
-        {% for storage in storages %}
+        {% for networks in NetworkDevice %}
             <tr>
-                <td class="text-center"> <img src="/{{ storage.image }}" class="rounded" width="100px" height="150px"> </td> 
-                <td style="vertical-align: middle;"> {{storage.name}} </td>
-                <td style="vertical-align: middle;"> {{storage.brand}} </td>
-                <td style="vertical-align: middle;"> {{storage.price}} </td>
+                <td class="text-center"> <img src="/{{ networks.image }}" class="rounded" width="100px" height="150px"> </td> 
+                <td style="vertical-align: middle;"> {{networks.name}} </td>
+                <td style="vertical-align: middle;"> {{networks.brand}} </td>
+                <td style="vertical-align: middle;"> {{networks.price}} </td>
                 <td style="vertical-align: middle;" > 
-                    <a href="/storageOne/{{ storage.storageid }}" class="btn btn-warning">
+                    <a href="/networkOne/{{ networks.ntid }}" class="btn btn-warning">
                         <i class="fa-solid fa-info"></i> 
                     </a>                              
                 </td>

@@ -23,7 +23,11 @@ urlpatterns = [
     path('', views.login, name='login'),
     path('home/', views.home, name='home'),
     path('computerList/', views.computerList, name='computerList'),
-    path('computerOne/<id>', views.computerOne, name='computerOne'),   
+    path('computerOne/<id>', views.computerOne, name='computerOne'),  
+    path('accessoriesList',views.accessoriesList,name='accessoriesList'),
+    path('accessoriesOne/<id>', views.accessoriesOne, name='accessoriesOne'), 
     path('storageList', views.storageList, name='storageList'),
     path('storageOne/<id>', views.storageOne, name='storageOne'),
+    path('networkList', views.networkList, name='networkList'),
+    path('networkOne/<id>', views.networkOne, name='networkOne'),
 ]
